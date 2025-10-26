@@ -25,7 +25,11 @@ public abstract class Person {
 	}
 	
 	
-	// constructor
+	// constructors
+	public Person() {
+		super();
+	}
+	
 	public Person(int id, String name) {
 		super();
 		validateId(id);
