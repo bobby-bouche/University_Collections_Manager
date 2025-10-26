@@ -13,6 +13,7 @@ public abstract class Person {
 	//symbolic constants
 	private static int MINIMUM_ID_VALUE;
 	private static int MAX_ID_VALUE;
+	private static int MAX_NAME_LENGTH;
 	
 	
 	
@@ -20,6 +21,7 @@ public abstract class Person {
 	{
 		MINIMUM_ID_VALUE = 1000;
 		MAX_ID_VALUE     = 5000;
+		MAX_NAME_LENGTH  = 50;
 	}
 	
 	
@@ -42,7 +44,9 @@ public abstract class Person {
 	}
 	
 	private static void validateName(String name) {
-		
+		if(name == null || name.isBlank() || name.length() > MAX_NAME_LENGTH) {
+			throw new IllegalArgumentException("Invalid person name: " + name);
+		}
 	}
 
 
