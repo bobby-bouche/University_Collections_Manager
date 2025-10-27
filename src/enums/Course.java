@@ -1,5 +1,7 @@
 package enums;
 
+import exceptions.InvalidCourseException;
+
 public enum Course {
 
 	// courses
@@ -20,7 +22,8 @@ public enum Course {
 	
 	// constructor
 	Course(String course){
-		this.setCourse(course);
+		validateCourse(course);
+		this.course = course;
 	}
 
 
@@ -31,13 +34,20 @@ public enum Course {
 	}
 
 	public void setCourse(String course) {
+		validateCourse(course);
 		this.course = course;
 	}
 	
 	
 	
-    // method that takes String input and validates for valid enum value match
-	public static boolean validateCourse(String inputCourse) {
+	// validators
+	private static void validateCourse(String course) {
+		if(!isValidCourse(course)) {
+			throw new InvalidCourseException("Invalid course: " + course);
+		}
+	}
+	
+	public static boolean isValidCourse(String inputCourse) {
 		for(Course course : Course.values()) {
 			if(course.course.equalsIgnoreCase(inputCourse)) {
 				return true;

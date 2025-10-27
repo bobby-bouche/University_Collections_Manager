@@ -4,12 +4,15 @@ import exceptions.InvalidRankException;
 
 public enum ProfessorRank {
 	
-	// fields
+	// enum values
 	ASSISTANT_PROFESSOR ("assistant professor"),
 	ASSOCIATE_PROFESSOR ("associate professor"),
 	FULL_PROFESSOR ("full professor");
 	
-	String rank;
+	
+	
+	// fields
+	private String rank;
 
 
 	
