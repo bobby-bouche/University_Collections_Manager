@@ -25,7 +25,6 @@ public class Student extends Person {
 	
 	
 	
-	
 	// consructors
 	public Student() {
 		super();
@@ -48,12 +47,12 @@ public class Student extends Person {
 		}
 	}
 	
-	
 	private static void validateCourse(String course) {
 		if(!Course.isValidCourse(course)) {
 			throw new InvalidCourseException("Invalid course:" + course);
 		}
 	}
+	
 	
 	
 	// getters and setters
@@ -82,5 +81,6 @@ public class Student extends Person {
 	public String toString() {
 		return "Student [course=" + course + ", gpa=" + gpa + "]";
 	}
+	
 	
 }

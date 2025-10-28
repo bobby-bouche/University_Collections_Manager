@@ -1,5 +1,7 @@
 package data;
 
+import enums.Course;
+import exceptions.InvalidCourseException;
 import exceptions.InvalidschoolIDException;
 
 public abstract class Person {
@@ -7,6 +9,7 @@ public abstract class Person {
 	// fields
 	private int school_id;
 	private String name;
+	private String course;
 	
 	
 	
@@ -25,17 +28,20 @@ public abstract class Person {
 	}
 	
 	
+	
 	// constructors
 	public Person() {
 		super();
 	}
 	
-	public Person(int id, String name) {
+	public Person(int id, String name, String course) {
 		super();
 		validateId(id);
 		this.school_id = id;
 		validateName(name);
 		this.name = name;
+		validateCourse(course);
+		this.course = course;
 	}
 	
 	
@@ -52,6 +58,13 @@ public abstract class Person {
 			throw new IllegalArgumentException("Invalid person name: " + name);
 		}
 	}
+	
+	private static void validateCourse(String course) {
+		if(!Course.isValidCourse(course)) {
+			throw new InvalidCourseException("Invalid course:" + course);
+		}
+	}
+	
 
 
 	
@@ -74,12 +87,24 @@ public abstract class Person {
 		this.name = name;
 	}
 	
+	public String getCourse() {
+		return course;
+	}
+
+	public void setCourse(String course) {
+		validateCourse(course);
+		this.course = course;
+	}
 	
 	
+	
+	// toString
 	@Override
 	public String toString() {
-		return "Person [school_id=" + school_id + ", name=" + name + "]";
+		return "Person [school_id=" + school_id + ", name=" + name + ", course=" + course + "]";
 	}
+	
+	
 	
 	
 }

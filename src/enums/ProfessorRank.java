@@ -7,7 +7,10 @@ public enum ProfessorRank {
 	// enum values
 	ASSISTANT_PROFESSOR ("assistant professor"),
 	ASSOCIATE_PROFESSOR ("associate professor"),
-	FULL_PROFESSOR ("full professor");
+	PROFESSOR ("professor"),
+	RESEARCH_ASSISTANT_PROFESSOR ("research assistant professor"),
+	RESEARCH_ASSOCIATE_PROFESSOR ("research associate professor"),	
+	RESEARCH_PROFESSOR ("research professor");
 	
 	
 	
