@@ -1,12 +1,8 @@
 package data;
 
-import enums.Course;
-import exceptions.InvalidCourseException;
-
 public class Student extends Person {
 
 	// student fields
-	private String course;
 	private double gpa;
 	
 	
@@ -31,9 +27,7 @@ public class Student extends Person {
 	}
 	
 	public Student(int id, String name, String course, double gpa) {
-		super(id, name);
-		validateCourse(course);
-		this.course = course;
+		super(id, name, course);
 		validateGPA(gpa);
 		this.gpa = gpa;
 	}
@@ -47,24 +41,9 @@ public class Student extends Person {
 		}
 	}
 	
-	private static void validateCourse(String course) {
-		if(!Course.isValidCourse(course)) {
-			throw new InvalidCourseException("Invalid course:" + course);
-		}
-	}
-	
 	
 	
 	// getters and setters
-	public String getCourse() {
-		return course;
-	}
-
-	public void setCourse(String course) {
-		validateCourse(course);
-		this.course = course;
-	}
-
 	public double getGpa() {
 		return gpa;
 	}
@@ -79,7 +58,7 @@ public class Student extends Person {
 	// toString
 	@Override
 	public String toString() {
-		return "Student [course=" + course + ", gpa=" + gpa + "]";
+		return "Student [gpa=" + gpa + "]";
 	}
 	
 	

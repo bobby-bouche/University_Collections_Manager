@@ -1,5 +1,7 @@
 package management;
 
-public class RecordManager<T> {
+import data.Person;
+
+public class RecordManager<T extends Person> {
 
 }
