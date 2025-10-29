@@ -19,6 +19,19 @@ public class RecordManager<T extends Person> {
 	}
 	
 	
+	public void remove(T entry) {
+		records.remove(entry.getSchool_id());
+	}
+	
+	
+	public <T> T find(int id) {
+		if(records.containsKey(id)) {
+			return (T) records.get(id);
+		}
+		return null;
+	}
+	
+	
 	
 	public List<T> all(){
 		return new ArrayList<>(records.values());
