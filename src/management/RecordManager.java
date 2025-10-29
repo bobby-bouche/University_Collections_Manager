@@ -7,6 +7,7 @@ import java.util.Map;
 
 
 import data.Person;
+import exceptions.RecordManagementException;
 
 public class RecordManager<T extends Person> {
 
@@ -23,14 +24,12 @@ public class RecordManager<T extends Person> {
 		records.remove(entry.getSchool_id());
 	}
 	
-	
-	public <T> T find(int id) {
-		if(records.containsKey(id)) {
-			return (T) records.get(id);
+	public Person find(int id) {
+		if(!records.containsKey(id)) {
+			throw new RecordManagementException("Person id: " + id + " not in system");
 		}
-		return null;
+		return records.get(id);
 	}
-	
 	
 	
 	public List<T> all(){
