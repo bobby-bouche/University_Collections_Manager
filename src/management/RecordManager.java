@@ -24,6 +24,7 @@ public class RecordManager<T extends Person> {
 		records.remove(entry.getSchool_id());
 	}
 	
+	
 	public Person find(int id) {
 		if(!records.containsKey(id)) {
 			throw new RecordManagementException("Person id: " + id + " not in system");
@@ -37,4 +38,6 @@ public class RecordManager<T extends Person> {
 	}
 	
 	
+	
+	// public List<T> search(Predicate<T> p) ??
 }
