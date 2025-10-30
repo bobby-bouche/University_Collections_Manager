@@ -4,14 +4,14 @@ import exceptions.InvalidCourseException;
 
 public enum Course {
 
-	// courses
-    COMPUTER_SCIENCE ("computer science"),
-    MATHEMATICS ("mathematics"),
-    PHYSICS("physics"),
-    HISTORY("history"),
-    ENGINEERING("engineering"),
-    BIOLOGY("biology"),	
-    ECONOMICS("economics");
+	// courses      courseCode
+    COMPUTER_SCIENCE ("csc"),
+    MATHEMATICS      ("mth"),
+    PHYSICS          ("phy"),
+    HISTORY          ("hst"),
+    ENGINEERING      ("eng"),
+    BIOLOGY          ("bio"),	
+    ECONOMICS        ("eco");
 	
 	
 	
@@ -41,15 +41,15 @@ public enum Course {
 	
 	
 	// validators
-	private static void validateCourse(String course) {
-		if(!isValidCourse(course)) {
-			throw new InvalidCourseException("Invalid course: " + course);
+	private static void validateCourse(String courseCode) {
+		if(!isValidCourse(courseCode)) {
+			throw new InvalidCourseException("Invalid courseCode: " + courseCode);
 		}
 	}
 	
-	public static boolean isValidCourse(String inputCourse) {
+	public static boolean isValidCourse(String courseCode) {
 		for(Course course : Course.values()) {
-			if(course.course.equalsIgnoreCase(inputCourse)) {
+			if(course.course.equalsIgnoreCase(courseCode)) {
 				return true;
 			}
 		}
