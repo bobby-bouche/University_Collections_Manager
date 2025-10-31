@@ -30,7 +30,9 @@ public class CourseManager {
 	
 	// class methods
 	public void enroll(int studentId, String courseCode) {
-		
+		if(studentByCourse.containsKey(courseCode)) {
+			// TODO search through list to find student
+		}
 	}
 	
 	
