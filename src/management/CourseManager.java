@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import data.Student;
+import exceptions.InvalidCourseException;
 
 public class CourseManager {
 	
@@ -29,9 +30,12 @@ public class CourseManager {
 	
 	
 	// class methods
+	/*
+	 * if it doesnt appear, create it. if it does apper, enroll student
+	 */
 	public void enroll(int studentId, String courseCode) {
-		if(studentByCourse.containsKey(courseCode)) {
-			// TODO search through list to find student
+		if(!studentByCourse.containsKey(courseCode)) {
+			
 		}
 	}
 	
