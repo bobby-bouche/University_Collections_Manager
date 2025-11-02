@@ -1,11 +1,11 @@
 package management;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import data.Student;
-import exceptions.InvalidCourseException;
 
 public class CourseManager {
 	
@@ -30,12 +30,19 @@ public class CourseManager {
 	
 	
 	// class methods
-	/*
-	 * if it doesnt appear, create it. if it does apper, enroll student
-	 */
 	public void enroll(int studentId, String courseCode) {
 		if(!studentByCourse.containsKey(courseCode)) {
-			
+			throw new IllegalArgumentException("No course with code: " + courseCode);
+		}
+		ArrayList<Student> students = (ArrayList<Student>) studentByCourse.get(courseCode);
+		for(Student stu : students) {
+			if(stu.getSchool_id() == studentId) {
+				throw new IllegalArgumentException("Student already is enrolled in this course");
+			}
+			else {
+				students.add(stu);
+				System.out.println("Student enrolled in class: " + courseCode);
+			}
 		}
 	}
 	
