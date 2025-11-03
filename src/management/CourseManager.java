@@ -31,14 +31,14 @@ public class CourseManager {
 	
 	// class methods
 	public void enroll(Student student, String courseCode) {
-		
 		if(!studentByCourse.containsKey(courseCode)) {
 			throw new IllegalArgumentException("No course with code: " + courseCode);
 		}
-		
-		ArrayList<Student> students = (ArrayList<Student>) studentByCourse.get(courseCode);
-		
-
+		if(studentByCourse.get(courseCode).contains(student)) {
+			throw new IllegalArgumentException("Student already enrolled in this course");
+		}
+		studentByCourse.get(courseCode).add(student);
+		System.out.println("Student: " + student.getName() + " added to course: " + courseCode);
 	}
 	
 	
@@ -51,6 +51,9 @@ public class CourseManager {
 		for(Student stu : students) {
 			if(stu.getSchool_id() == studentId) {
 				throw new IllegalArgumentException("Student already is enrolled in this course");
+			}
+			else {
+				
 			}
 		}
 	}
