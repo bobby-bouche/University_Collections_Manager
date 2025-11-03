@@ -1,6 +1,5 @@
 package management;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,19 +42,15 @@ public class CourseManager {
 	
 	
 	
-	public void unenroll(int studentId, String courseCode) {
+	public void unenroll(Student student, String courseCode) {
 		if(!studentByCourse.containsKey(courseCode)) {
 			throw new IllegalArgumentException("No course with code: " + courseCode);
 		}
-		ArrayList<Student> students = (ArrayList<Student>) studentByCourse.get(courseCode);
-		for(Student stu : students) {
-			if(stu.getSchool_id() == studentId) {
-				throw new IllegalArgumentException("Student already is enrolled in this course");
-			}
-			else {
-				
-			}
+		if(!studentByCourse.get(courseCode).contains(student)) {
+			throw new IllegalArgumentException("Student not enrolled in this course");
 		}
+		studentByCourse.get(courseCode).remove(student);
+		System.out.println("Student: " + student.getName() + " has been unenrolled from course: " + courseCode);
 	}
 
 
