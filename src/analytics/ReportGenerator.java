@@ -11,5 +11,16 @@ public class ReportGenerator {
 	 * - Search: find students by partial name (case-insensitive) using streams
 	 * 
 	 */
-
+	
+	// fields
+	
+	
+	
+	// constructor
+	public ReportGenerator() {
+		super();
+	}
+	
+	
+	
 }
