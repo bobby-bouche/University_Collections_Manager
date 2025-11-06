@@ -22,5 +22,7 @@ public class ReportGenerator {
 	}
 	
 	
-	
+	public void mostPopularCourse() {
+		
+	}
 }
