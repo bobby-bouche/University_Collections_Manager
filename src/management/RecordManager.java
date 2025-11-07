@@ -36,7 +36,11 @@ public class RecordManager<T extends Person> {
 	public List<T> all(){
 		return new ArrayList<>(records.values());
 	}
-	
+
+
+	public Map<Integer, T> getRecords() {
+		return records;
+	}
 	
 	
 	// public List<T> search(Predicate<T> p) ??
