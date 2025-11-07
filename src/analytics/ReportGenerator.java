@@ -6,11 +6,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import data.Student;
+import management.CourseManager;
 import management.RecordManager;
 
 public class ReportGenerator {
-	
-	RecordManager<Student> students = new RecordManager<>();
 	
 	/*
 	 *   must implement following
@@ -23,6 +22,8 @@ public class ReportGenerator {
 	 */
 	
 	// fields
+	RecordManager<Student> students = new RecordManager<>();
+	CourseManager courses = new CourseManager();
 	
 	
 	
@@ -31,12 +32,9 @@ public class ReportGenerator {
 		super();
 	}
 	
+
 	
-	public void mostPopularCourse() {
-		
-	}
-	
-	
+	// class methods
 	public List<Student> topStudents(int num){
 		// TODO kb.validateInt(num);
 		List<Student> topRated = (List<Student>) students.all().stream()
