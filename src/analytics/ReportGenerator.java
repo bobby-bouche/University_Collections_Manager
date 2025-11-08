@@ -57,4 +57,8 @@ public class ReportGenerator {
 	}
 	
 	
+    public void mostPopularcourse() {
+    	
+    }
+	
 }
