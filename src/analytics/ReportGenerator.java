@@ -57,8 +57,14 @@ public class ReportGenerator {
 	}
 	
 	
-    public void mostPopularCourse() {
-    	
+    public String mostPopularCourse() {
+    	Map<String, Long> counts = students.all().stream()
+    			.collect(Collectors.groupingBy(Student::getCourse, Collectors.counting()));
+    	String mostPopular = counts.entrySet().stream()
+    			.max(Map.Entry.comparingByValue())
+    			.map(Map.Entry::getKey)
+    			.orElse("None");
+    	return mostPopular;
     }
 	
 }
