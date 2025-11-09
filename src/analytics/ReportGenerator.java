@@ -14,10 +14,10 @@ public class ReportGenerator {
 	/*
 	 *   must implement following
 	 * 
-	 * - Top N students overall by GPA
-	 * - Average GPA per course
-	 * - Most popular course(s)
-	 * - Search: find students by partial name (case-insensitive) using streams
+	 * - Top N students overall by GPA 														 DONE
+	 * - Average GPA per course 															 DONE
+	 * - Most popular course(s)																 DONE
+	 * - Search: find students by partial name (case-insensitive) using streams              DONE
 	 * 
 	 */
 	
@@ -37,7 +37,9 @@ public class ReportGenerator {
 	// class methods
 	public List<Student> topStudents(int num){
 		// TODO kb.validateInt(num);
-		List<Student> topRated = (List<Student>) students.all().stream()
+		List<Student> topRated = (List<Student>) students
+				.all()
+				.stream()
 				.sorted(Comparator.comparingDouble(Student::getGpa)
 				.reversed())
 				.limit(num)
@@ -48,7 +50,9 @@ public class ReportGenerator {
 	
 	
 	public Map<String, Double> avgByCourse(){
-		Map<String, Double> avgMap = students.all().stream()
+		Map<String, Double> avgMap = students
+				.all()
+				.stream()
 				.collect(Collectors.groupingBy(
 						Student::getCourse,
 						Collectors.averagingDouble(Student::getGpa)
@@ -57,8 +61,11 @@ public class ReportGenerator {
 	}
 	
 	
+	
     public String mostPopularCourse() {
-    	Map<String, Long> counts = students.all().stream()
+    	Map<String, Long> counts = students
+    			.all()
+    			.stream()
     			.collect(Collectors.groupingBy(Student::getCourse, Collectors.counting()));
     	String mostPopular = counts.entrySet().stream()
     			.max(Map.Entry.comparingByValue())
@@ -67,4 +74,14 @@ public class ReportGenerator {
     	return mostPopular;
     }
 	
+    
+    
+    public List<Student> searchByName(String name){
+    	List<Student> result = students
+    			.all()
+    			.stream()
+    			.filter(s -> s.getName().toLowerCase().contains(name.toLowerCase()))
+    			.collect(Collectors.toList());
+    	return result;
+    }
 }
