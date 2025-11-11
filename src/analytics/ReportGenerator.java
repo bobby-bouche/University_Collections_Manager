@@ -48,7 +48,7 @@ public class ReportGenerator {
 	}
 	
 	
-	
+	// method to return the average gpa per course
 	public Map<String, Double> avgByCourse(){
 		Map<String, Double> avgMap = students
 				.all()
