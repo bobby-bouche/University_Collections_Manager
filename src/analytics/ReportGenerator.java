@@ -37,7 +37,7 @@ public class ReportGenerator {
 	// class methods
 	public List<Student> topStudents(int num){
 		// TODO kb.validateInt(num);
-		List<Student> topRated = (List<Student>) students
+		List<Student> topRated = students
 				.all()
 				.stream()
 				.sorted(Comparator.comparingDouble(Student::getGpa)
