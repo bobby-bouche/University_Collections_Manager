@@ -62,6 +62,7 @@ public class ReportGenerator {
 	
 	
 	
+	// method to return a map of the number of students for every class
     public String mostPopularCourse() {
     	Map<String, Long> counts = students
     			.all()
